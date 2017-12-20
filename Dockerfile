@@ -14,7 +14,8 @@ RUN ls -lrt /etc/yum.repos.d/ && cat /etc/yum.repos.d/redhat.repo
 
 #COPY tda-yum_master.repo /etc/yum.repos.d/tda-yum.repo
 RUN yum clean all 
-RUN rm -rf /etc/yum.repos.d/*
-RUN yum makecache
+RUN yum-config-manager --disablerepo=rhel-7-server-rt-beta-rpms 
+
+RUN yum -v repolist
 
 #RUN yum clean all && yum makecache && yum -y upgrade && yum -y install tar
