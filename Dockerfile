@@ -14,6 +14,7 @@ RUN ls -lrt /etc/yum.repos.d/
 
 #COPY tda-yum_master.repo /etc/yum.repos.d/tda-yum.repo
 RUN yum clean all 
+RUN rm -rf /etc/yum.repos.d/*
 RUN yum makecache
 
 #RUN yum clean all && yum makecache && yum -y upgrade && yum -y install tar
