@@ -9,7 +9,7 @@ MAINTAINER Mahesh Gurugunti <mahesh.gurugunti@tdameritrade.com>
 #        #rpm --import http://prdtxlvyumas02.associatesys.local/yumrepos/mrepo/rhel-7-x86_64/RPM-GPG-KEY/RPM-GPG-KEY-foreman && \
 
 #RUN rm -f /etc/yum.repos.d/redhat.repo 
-RUN ls -lrt /etc/yum.repos.d/
+RUN ls -lrt /etc/yum.repos.d/ && cat /etc/yum.repos.d/redhat.repo
 #&& subscription-manager config --rhsm.manage_repos=0
 
 #COPY tda-yum_master.repo /etc/yum.repos.d/tda-yum.repo
