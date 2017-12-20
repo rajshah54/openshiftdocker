@@ -13,8 +13,11 @@ RUN ls -lrt /etc/yum.repos.d/ && cat /etc/yum.repos.d/redhat.repo
 #&& subscription-manager config --rhsm.manage_repos=0
 
 #COPY tda-yum_master.repo /etc/yum.repos.d/tda-yum.repo
+RUN ls -l /etc/yum/pluginconf.d && cat /etc/yum/pluginconf.d/subscription-manager.conf
+RUN rm /etc/yum/pluginconf.d/subscription-manager.conf
 RUN yum clean all 
-RUN yum-config-manager --disablerepo=rhel-7-server-rt-beta-rpms && subscription-manager config --rhsm.manage_repos=0
+
+#RUN yum-config-manager --disablerepo=rhel-7-server-rt-beta-rpms && subscription-manager config --rhsm.manage_repos=0
 RUN yum -v repolist
 
 #RUN yum clean all && yum makecache && yum -y upgrade && yum -y install tar
